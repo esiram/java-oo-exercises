@@ -68,30 +68,29 @@ public class Robot {
 			{
 					this.orientation = "North";
 			}
-		
 	}
 
 
     // Move Robot
 	public void moveRobot(int time)
 	{
+		int distance = this.speed * time;
 		if (this.orientation == "North")
 			{
-					this.y = this.y + (this.speed * time);
+					this.y = this.y + distance;
 			}
 		else if (this.orientation == "South")
 			{
-				this.y = this.y - (this.speed * time);
+				this.y = this.y - distance;
 			}
 		else if (this.orientation == "West")
 			{
-				this.x = this.x - (this.speed * time);
+				this.x = this.x - distance;
 			}
 		else //this.orientation == "East"
 			{
-				this.x = this.x + (this.speed * time);
-			}
-		
+				this.x = this.x + distance;
+			}	
 	}
 
 	// Determine distance between it and other robot object
