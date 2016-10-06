@@ -28,8 +28,7 @@ public class Student {
 		return name;
 	}
 	
-	//test to add to github because of adding new branch from launchcode master... which seems to have lost my student file, though student file on eclipse home, just not in java-oo - es 10-6-16
-	
+
 	public int getStudentID()
 	{
 		return this.studentID;
