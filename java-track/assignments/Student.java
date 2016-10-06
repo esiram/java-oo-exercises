@@ -47,9 +47,9 @@ public class Student {
 	}
 	
 	
-	//should I add a spot for classStanding to go in the student constructor or student class? - es10/5/16
+//should I add a spot for classStanding to go in the student constructor or student class? - es10/5/16
 	public String getClassStanding()  
-		{
+	{
 		if(this.credits < 30) 
 			{
 				return "Freshman";
@@ -68,13 +68,17 @@ public class Student {
 			}	
 	}
 	
-}
-		//submitGrade()
-	public void submitGrade(double, int)
-	{
-		
-	}
 	
+//submitGrade()
+	public double submitGrade(double grade, int courseCredits) // FIGURE OUT HOW TO ROUND THIS TO 3 DECIMALS per test-ES 10-6-16
+	{		
+		double initQualityGPA = this.gpa * this.credits;
+		double courseQualityGPA = courseCredits * grade; 
+		this.credits = this.credits + courseCredits;
+		this.gpa = (initQualityGPA + courseQualityGPA) / this.credits;
+		return this.gpa;		
+	}
+
 		
 	    //computeTuition()
 	    //createLegacy() -- note: this involves making a new constructor for the new generation student
@@ -95,4 +99,4 @@ public class Student {
 
 	//}
 
-//}
+}

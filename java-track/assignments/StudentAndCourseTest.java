@@ -65,21 +65,21 @@ public class StudentAndCourseTest extends TestCase {
 		}
 	}
 
-//	@Test
-//	public void testSubmitGrade() {
-//		Student s = new Student("D", "S", 1);
-//		int credits = 0;
-//		double gpatotal = 0;
-//		for (int i = 0; i < 100; i++) {
-//			int c = (int)(Math.random() * 3 + 1);//1 to 3 credits
-//			double g = Math.random() * 4;//0 to 4
-//			credits += c;
-//			gpatotal += g * c;
-//			s.submitGrade(g, c);
-//			assertEquals("GPA computed incorrectly", gpatotal / credits, s.getGPA(), 0.01);
-//			assertTrue("GPA not rounded", (s.getGPA() + "").length() < 6);
-//		}
-//	}
+	@Test
+	public void testSubmitGrade() {
+		Student s = new Student("D", "S", 1);
+		int credits = 0;
+		double gpatotal = 0;
+		for (int i = 0; i < 100; i++) {
+			int c = (int)(Math.random() * 3 + 1);//1 to 3 credits
+			double g = Math.random() * 4;//0 to 4
+			credits += c;
+			gpatotal += g * c;
+			s.submitGrade(g, c);
+			assertEquals("GPA computed incorrectly", gpatotal / credits, s.getGPA(), 0.01);
+			assertTrue("GPA not rounded", (s.getGPA() + "").length() < 6);
+		}
+	}
 
 //	@Test
 //	public void testComputeTuition() {
@@ -231,4 +231,4 @@ public class StudentAndCourseTest extends TestCase {
 
 
 
-//}
+}
