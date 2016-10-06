@@ -10,14 +10,14 @@ public class Student {
 	
 	
 //Behaviors (methods):
-		//create constructor
-	public Student(String firstName, String lastName, int studentID, int credits, double gpa)
+//create constructor
+	public Student(String firstName, String lastName, int studentID)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.studentID = studentID;
-		this.credits = credits;
-		this.gpa = gpa;   
+		this.credits = 0;
+		this.gpa = 0.000;
 	}
 
 	
@@ -48,30 +48,33 @@ public class Student {
 	
 	
 	//should I add a spot for classStanding to go in the student constructor or student class? - es10/5/16
-	public void getClassStanding() //Should this return void or should it return classStanding?? AND which: (int credits) or ()?-es10/5/16  
+	public String getClassStanding()  
 		{
 		if(this.credits < 30) 
 			{
-				String classStanding = "Freshman";
+				return "Freshman";
 			}
 		else if(this.credits >= 30 & this.credits < 60)
 			{
-				String classStanding = "Sophomore";
+				return "Sophomore";
 			}
 		else if(this.credits >= 60 & this.credits < 90)
 			{
-				String classStanding = "Junior";
+				return "Junior";
 			}
 		else //this.credits >= 90
 			{
-				String classStanding = "Senior";
+				return "Senior";
 			}	
 	}
 	
 }
 		//submitGrade()
-	//public void submitGrade(int)
-	//{
+	public void submitGrade(double, int)
+	{
+		
+	}
+	
 		
 	    //computeTuition()
 	    //createLegacy() -- note: this involves making a new constructor for the new generation student
