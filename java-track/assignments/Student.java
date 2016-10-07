@@ -72,19 +72,32 @@ public class Student {
 //submitGrade()
 	public void submitGrade(double grade, int courseCredits) // FIGURE OUT HOW TO ROUND THIS TO 3 DECIMALS per test-ES 10-6-16 (float?????)
 	{		
-//		double initQualityGPA = this.gpa * this.credits;
-//		double courseQualityGPA = courseCredits * grade; 
-//		this.credits = this.credits + courseCredits;
-//		this.gpa = (initQualityGPA + courseQualityGPA) / this.credits;
-//		this.gpa = (Math.round (this.gpa) * 10000.000) / 10000.000;
-		double gpatotal = this.gpa + (grade * courseCredits);
+		double initQualityGPA = this.gpa * this.credits;
+		double courseQualityGPA = courseCredits * grade; 
 		this.credits = this.credits + courseCredits;
-		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
+		this.gpa = (initQualityGPA + courseQualityGPA) / this.credits;
+//		long roundedGPA = (long) (Math.round(this.gpa) * 1000.0);  //attempt to round GPA cast it as a long, then truncate it to 3 decimal spots
+//		this.gpa = 	(double) roundedGPA/ 1000.0;
+		this.gpa = (this.gpa * 1000.0) / 1000.0;
+//		double gpatotal = this.gpa + (grade * courseCredits);  // attempt to round GPA and change to 3 decimal places (Deech's method on 10/6/16)
+//		this.credits = this.credits + courseCredits;
+//		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
 	}
 
 	
 //computeTuition()
-	
+	public void computeTuition(int semesterCredits)
+	{
+		if (semesterCredits > 0 & semesterCredits <= 15)
+			{
+			int tuition = 20000;
+			}
+		else if (semesterCredits > 15)
+		{
+			int difference = semesterCredits - 15;
+			int tuition = 20000 + ((difference * 20000) / 15);
+		}
+	}
 	
 	
 //createLegacy() -- note: this involves making a new constructor for the new generation student

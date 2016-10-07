@@ -81,22 +81,22 @@ public class StudentAndCourseTest extends TestCase {
 		}
 	}
 
-//	@Test
-//	public void testComputeTuition() {
-//		Student s = new Student("D", "S", 1);
-//		for (int i = 0; i < 14; i++) {
-//			s.submitGrade(0, 1);
-//			assertEquals("Compute tution not working properly", (i+1) * 1333.33, s.computeTuition());
-//		}
+	@Test
+	public void testComputeTuition() {
+		Student s = new Student("D", "S", 1);
+		for (int i = 0; i < 14; i++) {
+			s.submitGrade(0, 1);
+			assertEquals("Compute tuition not working properly", (i+1) * 1333.33, s.computeTuition());
+		}
 
-//		s.submitGrade(0, 1);
-//		assertEquals("Compute tution not working properly", 20000.0, s.computeTuition());
+		s.submitGrade(0, 1);
+		assertEquals("Compute tuition not working properly", 20000.0, s.computeTuition());
 
-//		for (int i = 0; i < 14; i++) {
-//			s.submitGrade(0, 1);
-//			assertEquals("Compute tution not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
-//		}
-//	}
+		for (int i = 0; i < 14; i++) {
+			s.submitGrade(0, 1);
+			assertEquals("Compute tuition not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
+		}
+	}
 
 //	@Test
 //	public void testCreateLegacy() {
