@@ -70,18 +70,24 @@ public class Student {
 	
 	
 //submitGrade()
-	public double submitGrade(double grade, int courseCredits) // FIGURE OUT HOW TO ROUND THIS TO 3 DECIMALS per test-ES 10-6-16
+	public void submitGrade(double grade, int courseCredits) // FIGURE OUT HOW TO ROUND THIS TO 3 DECIMALS per test-ES 10-6-16 (float?????)
 	{		
-		double initQualityGPA = this.gpa * this.credits;
-		double courseQualityGPA = courseCredits * grade; 
+//		double initQualityGPA = this.gpa * this.credits;
+//		double courseQualityGPA = courseCredits * grade; 
+//		this.credits = this.credits + courseCredits;
+//		this.gpa = (initQualityGPA + courseQualityGPA) / this.credits;
+//		this.gpa = (Math.round (this.gpa) * 10000.000) / 10000.000;
+		double gpatotal = this.gpa + (grade * courseCredits);
 		this.credits = this.credits + courseCredits;
-		this.gpa = (initQualityGPA + courseQualityGPA) / this.credits;
-		return this.gpa;		
+		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
 	}
 
-		
-	    //computeTuition()
-	    //createLegacy() -- note: this involves making a new constructor for the new generation student
+	
+//computeTuition()
+	
+	
+	
+//createLegacy() -- note: this involves making a new constructor for the new generation student
 
 	
 	
