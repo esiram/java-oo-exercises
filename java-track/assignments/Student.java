@@ -83,7 +83,11 @@ public class Student {
 //		double gpatotal = this.gpa + (grade * courseCredits);  // attempt to round GPA and change to 3 decimal places (Deech's method on 10/6/16)
 //		this.credits = this.credits + courseCredits;
 //		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
+<<<<<<< HEAD
 	 }
+=======
+	}
+>>>>>>> a9689897125d7ac1d53bfe2f35e3f9275fdd34bf
 
 	
 //computeTuition()
