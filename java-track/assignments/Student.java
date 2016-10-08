@@ -46,9 +46,8 @@ public class Student {
 		return this.gpa;
 	}
 
-	
-	
-//should I add a spot for classStanding to go in the student constructor or student class? - es10/5/16
+
+
 	public String getClassStanding()  
 	{
 		if(this.credits < 30) 
@@ -83,11 +82,7 @@ public class Student {
 //		double gpatotal = this.gpa + (grade * courseCredits);  // attempt to round GPA and change to 3 decimal places (Deech's method on 10/6/16)
 //		this.credits = this.credits + courseCredits;
 //		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
-<<<<<<< HEAD
-	 }
-=======
 	}
->>>>>>> a9689897125d7ac1d53bfe2f35e3f9275fdd34bf
 
 	
 //computeTuition()
@@ -107,7 +102,6 @@ public class Student {
 			int tuition = (this.credits * 20000) / 15;
 		}
 	}
-	//to fix git
 	
 	
 //createLegacy() -- note: this involves making a new constructor for the new generation student
