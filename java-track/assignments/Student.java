@@ -103,6 +103,7 @@ public class Student {
 			int tuition = (this.credits * 20000) / 15;
 		}
 	}
+	//to fix git
 	
 	
 //createLegacy() -- note: this involves making a new constructor for the new generation student
