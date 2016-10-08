@@ -70,18 +70,13 @@ public class Student {
 	
 	
 //submitGrade()
-	public void submitGrade(double grade, int courseCredits) // FIGURE OUT HOW TO ROUND THIS TO 3 DECIMALS per test-ES 10-6-16 (float?????)
+	public void submitGrade(double grade, int courseCredits) 
 	{		
-		double initQualityGPA = this.gpa * this.credits;
-		double courseQualityGPA = courseCredits * grade; 
+		double quality = grade * courseCredits;
+		double previousQuality = this.gpa * this.credits;
 		this.credits = this.credits + courseCredits;
-		this.gpa = (initQualityGPA + courseQualityGPA) / this.credits;
-//		long roundedGPA = (long) (Math.round(this.gpa) * 1000.0);  //attempt to round GPA cast it as a long, then truncate it to 3 decimal spots
-//		this.gpa = 	(double) roundedGPA/ 1000.0;
-		this.gpa = (this.gpa * 1000.0) / 1000.0;
-//		double gpatotal = this.gpa + (grade * courseCredits);  // attempt to round GPA and change to 3 decimal places (Deech's method on 10/6/16)
-//		this.credits = this.credits + courseCredits;
-//		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
+		this.gpa = (quality + previousQuality) / this.credits;
+		this.gpa = (double) (Math.round(this.gpa * 1000)) / 1000;
 	}
 
 	

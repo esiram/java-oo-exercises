@@ -76,7 +76,10 @@ public class StudentAndCourseTest extends TestCase {
 			credits += c;
 			gpatotal += g * c;
 			s.submitGrade(g, c);
+			System.out.println(gpatotal / credits);
+			System.out.println(s.getGPA());
 			assertEquals("GPA computed incorrectly", gpatotal / credits, s.getGPA(), 0.01);
+//			System.out.println((s.getGPA() + "").length());
 			assertTrue("GPA not rounded", (s.getGPA() + "").length() < 6);
 		}
 	}
