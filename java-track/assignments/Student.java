@@ -45,6 +45,7 @@ public class Student {
 	{
 		return this.gpa;
 	}
+
 	
 	
 //should I add a spot for classStanding to go in the student constructor or student class? - es10/5/16
@@ -62,7 +63,7 @@ public class Student {
 			{
 				return "Junior";
 			}
-		else //this.credits >= 90
+		else //(this.credits >= 90)
 			{
 				return "Senior";
 			}	
@@ -82,22 +83,26 @@ public class Student {
 //		double gpatotal = this.gpa + (grade * courseCredits);  // attempt to round GPA and change to 3 decimal places (Deech's method on 10/6/16)
 //		this.credits = this.credits + courseCredits;
 //		this.gpa = (Math.round (gpatotal / this.credits) * 10000.000) / 10000.000;
-	}
+	 }
 
 	
 //computeTuition()
-	public void computeTuition(int semesterCredits)
+	public void computeTuition(int courseCredits)
 	{
-		if (semesterCredits > 0 & semesterCredits <= 15)
-			{
+//		if (semesterCredits > 0 & semesterCredits <= 15)  //should each semester's first 1-15 credits total $20,000, or should lesser amounts get prorated?
+		if (this.credits == 15)	{
 			int tuition = 20000;
 			}
-		else if (semesterCredits > 15)
+		else if (this.credits > 15)
 		{
-			int difference = semesterCredits - 15;
+			int difference = this.credits - 15;
 			int tuition = 20000 + ((difference * 20000) / 15);
 		}
-	}
+		else //(this.credits < 15)
+		{
+			int tuition = (this.credits * 20000) / 15;
+		}
+	}//test for git
 	
 	
 //createLegacy() -- note: this involves making a new constructor for the new generation student
