@@ -10,7 +10,7 @@ public class Student {
 	
 	
 //Behaviors (methods):
-//create constructor
+//constructor
 	public Student(String firstName, String lastName, int studentID)
 	{
 		this.firstName = firstName;
@@ -21,7 +21,7 @@ public class Student {
 	}
 
 	
-//create getters and setters per unit test
+//getters and setters
 	public String getName()
 	{
 		String name = this.firstName + " " + this.lastName;
@@ -80,23 +80,28 @@ public class Student {
 	}
 
 	
-//computeTuition()
-	public void computeTuition(int courseCredits)
+//computeTuition()   //do I need to have a setter method up top for tuition?-Es 10/9/16
+	public void computeTuition()
 	{
-//		if (semesterCredits > 0 & semesterCredits <= 15)  //should each semester's first 1-15 credits total $20,000, or should lesser amounts get prorated?
-		if (this.credits == 15)	{
-			int tuition = 20000;
+		for int in submitGrade(double grade, int courseCredits)
+		{
+			this.credits = this.credits + semesterCredits;
+//			if (semesterCredits > 0 & semesterCredits <= 15)  //should each semester's first 1-15 credits total $20,000, or should lesser amounts get prorated?
+			if (this.credits == 15)	
+			{
+				int tuition = 20000;
 			}
-		else if (this.credits > 15)
-		{
-			int difference = this.credits - 15;
-			int tuition = 20000 + ((difference * 20000) / 15);
+			else if (this.credits > 15)
+			{
+				int difference = this.credits - 15;
+				int tuition = 20000 + ((difference * 20000) / 15);
+			}
+			else //(this.credits < 15)
+			{
+				int tuition = (this.credits * 20000) / 15;
+			}
 		}
-		else //(this.credits < 15)
-		{
-			int tuition = (this.credits * 20000) / 15;
-		}
-	}
+	}	
 	
 	
 //createLegacy() -- note: this involves making a new constructor for the new generation student
