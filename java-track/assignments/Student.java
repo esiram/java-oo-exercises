@@ -81,26 +81,10 @@ public class Student {
 
 	
 //computeTuition()   //do I need to have a setter method up top for tuition?-Es 10/9/16
-	public void computeTuition()
+	public double computeTuition()
 	{
-		for int in submitGrade(double grade, int courseCredits)
-		{
-			this.credits = this.credits + semesterCredits;
-//			if (semesterCredits > 0 & semesterCredits <= 15)  //should each semester's first 1-15 credits total $20,000, or should lesser amounts get prorated?
-			if (this.credits == 15)	
-			{
-				int tuition = 20000;
-			}
-			else if (this.credits > 15)
-			{
-				int difference = this.credits - 15;
-				int tuition = 20000 + ((difference * 20000) / 15);
-			}
-			else //(this.credits < 15)
-			{
-				int tuition = (this.credits * 20000) / 15;
-			}
-		}
+		double costPerCredit = 20000 / 15;
+		return (double)(costPerCredit * this.credits);
 	}	
 	
 	
