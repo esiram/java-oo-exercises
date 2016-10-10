@@ -91,6 +91,14 @@ public class Student {
 	public void createLegacy(Student this, Student other)
 	{
 		//create baby constructor
+		//Fields:
+		//private String babyFirstName;
+		//private String babyLastName;
+		//private int babyStudentID;
+		//private int babyCredits;
+		//private double babyStudentGPA;
+		
+		
 		String babyFirstName = this.getName();
 		String babyLastName = other.getName();
 		String babyName = babyFirstName + babyLastName;
@@ -106,7 +114,14 @@ public class Student {
 			int babyStudentCredits = other.getCredits();
 		}
 		//create new student from baby
-		
+		public new Student(String firstName, String lastName, int studentID)
+		{
+			String firstName = this.babyFirstName;
+			String lastName = this.babyLastName;
+			int studentID =  this.babyStudentID;
+			double studentGPA = this.babyStudentGPA;
+			int studentCredits = this.babyStudentCredits;
+		}
 		
 		
 		
