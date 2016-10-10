@@ -156,50 +156,46 @@ public class StudentAndCourseTest extends TestCase {
 //	// TESTING COURSE CLASS HERE . . . FEEL FREE TO WRITE YOUR OWN, BUT DON'T CHANGE THIS ONE
 //	// once again, we are watching you
 
-//	@Test
-//	public void testCourseInit() {
-//		Course c = new Course("CSE131", 1, 2);
-//		assertEquals("CSE131", c.getName());
-//		assertEquals(2, c.getRemainingSeats());
-//		for (int i = 0; i < 20; ++i) {
-//			double a =  (Math.random() * 5000);
-//			int s = (int)(Math.random() * 5000);
-//			Course c2 = new Course("" + a, s, s);
-//			assertEquals("course getName() not working, or name not being set properly", "" + a, c2.getName());
-//			assertEquals("course getRemainingSeats() not working, or seats not being set properly", s, c2.getRemainingSeats());
-//		}
-//	}
+	@Test
+	public void testCourseInit() {
+		Course c = new Course("CSE131", 1, 2);
+		assertEquals("CSE131", c.getName());
+		assertEquals(2, c.getRemainingSeats());
+		for (int i = 0; i < 20; ++i) {
+			double a =  (Math.random() * 5000);
+			int s = (int)(Math.random() * 5000);
+			Course c2 = new Course("" + a, s, s);
+			assertEquals("course getName() not working, or name not being set properly", "" + a, c2.getName());
+			assertEquals("course getRemainingSeats() not working, or seats not being set properly", s, c2.getRemainingSeats());
+		}
+	}
 
-//	@Test
-//	public void testAddStudent() {
-//		for (int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			int s = (int)(Math.random() * 50);
-//			Course c = new Course("" + a, s, s);
-
-//			for (int j = 0; j < s; j++) {
-//				String aa =  "" + (Math.random() * 5000);
-//				String b =  "" + (Math.random() * 5000);
-//				int cc = (int)Math.random() * 500000;
-//				Student s2 = new Student(aa, b, cc);
-//				boolean added = c.addStudent(s2);
-//				assertTrue("addStudent not working properly", added);
-
-//				assertEquals("seats not updated after adding a student", s - j - 1, c.getRemainingSeats());
-//			}
-
-//			//Try to add students, even though the class is full.
-//			for (int j = 0; j < s; j++) {
-//				String aa =  "" + (Math.random() * 5000);
-//				String b =  "" + (Math.random() * 5000);
-//				int cc = (int)Math.random() * 500000;
-//				Student s2 = new Student(aa, b, cc);
-//				boolean added = c.addStudent(s2);
-
-//				assertTrue("addStudent not working properly: student added even though class was full", !added);
-//			}
-//		}
-//	}
+	@Test
+	public void testAddStudent() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			int s = (int)(Math.random() * 50);
+			Course c = new Course("" + a, s, s);
+			for (int j = 0; j < s; j++) {
+				String aa =  "" + (Math.random() * 5000);
+				String b =  "" + (Math.random() * 5000);
+				int cc = (int)Math.random() * 500000;
+				Student s2 = new Student(aa, b, cc);
+				boolean added = c.addStudent(s2);
+				assertTrue("addStudent not working properly", added);
+				assertEquals("seats not updated after adding a student", s - j - 1, c.getRemainingSeats());
+			}
+			//Try to add students, even though the class is full.
+			for (int j = 0; j < s; j++) {
+				String aa =  "" + (Math.random() * 5000);
+				String b =  "" + (Math.random() * 5000);
+				int cc = (int)Math.random() * 500000;
+				Student s2 = new Student(aa, b, cc);
+				boolean added = c.addStudent(s2);
+				assertTrue("addStudent not working properly: student added even though class was full", !added);
+			}
+		}
+	}
 
 //	@Test
 //	public void testAverageGPA() {
