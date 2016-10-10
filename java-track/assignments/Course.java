@@ -29,21 +29,24 @@ public class Course {
 		return this.credits;
 	}
 
+	
 	public int getRemainingSeats()
 	{
 		return this.seatBalance;
 	}
 
+	
 	public Student[] getRoster()
 	{
 		return this.roster;
 	}
 	
-	//addStudent -- check if enrolled
 	
+	//addStudent -- 1) check if enrolled
 	public boolean studentEnrolled(Student student)
 	{
-        for(Student enrolled : this.roster) {
+        for(Student enrolled : this.roster) 
+        {
         	if (enrolled != null) 
         	{
         		if (enrolled.getName() == student.getName())
@@ -55,7 +58,8 @@ public class Course {
         return false;
 	}
 	
-	//addStudent()
+	
+	//addStudent() -- 2) add student if not enrolled and if seats remain in class
 	public boolean addStudent(Student student)
 	{
 		if (this.seatBalance == 0)
@@ -81,11 +85,13 @@ public class Course {
 		return false;
 	}
 
+	
 	//generateRoster()	
 	public void generateRoster()
 	{
 		System.out.println("Roster for " + this.name + ":");
-        for(Student student : this.roster) {
+        for(Student student : this.roster) 
+        {
         	if (student == null) 
         	{
         		System.out.println("  Empty");
@@ -97,7 +103,27 @@ public class Course {
         }
 	}
 
+	
 	//averageGPA()
+	public double averageGPA()
+	{
+		double totalGPA = 0; 
+		for(Student student : this.roster)
+		{
+			if (student != null)
+			{
+				totalGPA = totalGPA + student.getGPA();
+			}
+			else
+			{	
+				totalGPA = totalGPA;
+			}
+		}
+		double averageGPA = totalGPA / (this.roster.length - this.seatBalance); 
+		return averageGPA;
+	}
+	
+	
 
 	//toString()
 }

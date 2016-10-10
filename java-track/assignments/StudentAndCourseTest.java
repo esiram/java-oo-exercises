@@ -185,6 +185,7 @@ public class StudentAndCourseTest extends TestCase {
 				assertTrue("addStudent not working properly", added);
 				assertEquals("seats not updated after adding a student", s - j - 1, c.getRemainingSeats());
 			}
+			
 			//Try to add students, even though the class is full.
 			for (int j = 0; j < s; j++) {
 				String aa =  "" + (Math.random() * 5000);
@@ -197,27 +198,27 @@ public class StudentAndCourseTest extends TestCase {
 		}
 	}
 
-//	@Test
-//	public void testAverageGPA() {
-//		for (int j = 0; j < 100; j++) {
-//			double a =  (Math.random() * 5000);
-//			int s = (int)(Math.random() * 50 + 50);
-//			Course c = new Course("" + a, s, s);
+	@Test
+	public void testAverageGPA() {
+		for (int j = 0; j < 100; j++) {
+			double a =  (Math.random() * 5000);
+			int s = (int)(Math.random() * 50 + 50);
+			Course c = new Course("" + a, s, s);
 
-//			double gpaSum = 0;
-//			for(int i = 0; i < s; i++) {
-//				String aa =  "" + (Math.random() * 5000);
-//				String b =  "" + (Math.random() * 5000);
-//				int cc = (int)(Math.random() * 500000);
-//				Student s2 = new Student(aa, b, cc);
-//				double g = Math.round(Math.random() * 4000) / 1000.0;
-//				gpaSum += g;
-//				s2.submitGrade(g, 1);
-//				c.addStudent(s2);
-//				assertEquals("course averageGPA() not working properly", gpaSum / (i + 1), c.averageGPA(), 0.01);
-//			}
-//		}
-//	}
+			double gpaSum = 0;
+			for(int i = 0; i < s; i++) {
+				String aa =  "" + (Math.random() * 5000);
+				String b =  "" + (Math.random() * 5000);
+				int cc = (int)(Math.random() * 500000);
+				Student s2 = new Student(aa, b, cc);
+				double g = Math.round(Math.random() * 4000) / 1000.0;
+				gpaSum += g;
+				s2.submitGrade(g, 1);
+				c.addStudent(s2);
+				assertEquals("course averageGPA() not working properly", gpaSum / (i + 1), c.averageGPA(), 0.01);
+			}
+		}
+	}
 
 //	@Test
 //	public void testCourseToString() {
