@@ -47,7 +47,6 @@ public class Student {
 	}
 
 
-
 	public String getClassStanding()  
 	{
 		if(this.credits < 30) 
@@ -87,15 +86,34 @@ public class Student {
 		return (costPerCredit * this.credits);
 	}	
 	
-	
-//createLegacy() -- note: this involves making a new constructor for the new generation student
-	public createLegacy(type Student, type Student)
-	{
 
+//createLegacy() -- note: this involves making a new constructor for the new generation student
+	public void createLegacy(Student this, Student other)
+	{
+		//create baby constructor
+		String babyFirstName = this.getName();
+		String babyLastName = other.getName();
+		String babyName = babyFirstName + babyLastName;
+		
+		int babyStudentID = this.getStudentID() + other.getStudentID();
+		double babyStudentGPA = (this.getGPA() * other.getGPA()) / 2;
+		if (this.getCredits() > other.getCredits())
+		{
+			int babyStudentCredits = this.getCredits();
+		}
+		else // this.getCredits() < other.getCredits()
+		{
+			int babyStudentCredits = other.getCredits();
+		}
+		//create new student from baby
+		
+		
+		
+		
 	}
+
 	
-	
-	
+}
 	
 	
 	
@@ -108,4 +126,3 @@ public class Student {
 
 	//}
 
-}
