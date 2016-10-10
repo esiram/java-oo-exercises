@@ -126,4 +126,10 @@ public class Course {
 	
 
 	//toString()
+	public String toString()
+	{
+		return("Course Number: " + this.name + "; CourseCredits: " + this.credits);
+	}
+	
+	
 }

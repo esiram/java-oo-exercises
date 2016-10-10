@@ -220,16 +220,16 @@ public class StudentAndCourseTest extends TestCase {
 		}
 	}
 
-//	@Test
-//	public void testCourseToString() {
-//		for (int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			int c = (int)Math.random() * 500000;
-//			Course cc = new Course("" + a, c, c);
-//			assertTrue("course toString does not contain course name", cc.toString().contains("" + a));
-//			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
-//		}
-//	}
+	@Test
+	public void testCourseToString() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			int c = (int)Math.random() * 500000;
+			Course cc = new Course("" + a, c, c);
+			assertTrue("course toString does not contain course name", cc.toString().contains("" + a));
+			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
+		}
+	}
 
 
 
