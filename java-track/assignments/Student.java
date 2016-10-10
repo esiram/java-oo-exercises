@@ -20,8 +20,8 @@ public class Student {
 		this.gpa = 0.000;
 	}
 
-	
-//getters and setters
+
+	//getters and setters
 	public String getName()
 	{
 		String name = this.firstName + " " + this.lastName;
@@ -85,35 +85,32 @@ public class Student {
 		double costPerCredit = 20000 / 15;
 		return (costPerCredit * this.credits);
 	}	
-}
+
 
 //createLegacy() -- note: this involves making a new constructor for the new generation student
 	public void createLegacy(Student this, Student other)
-		
-
-	//create baby constructor
-		
-		String babyFirstName = this.getName();
-		String babyLastName = other.getName();
-		int babyStudentID = this.getStudentID() + other.getStudentID();
-		double babyStudentGPA = (this.getGPA() * other.getGPA()) / 2;
-		if (this.getCredits() > other.getCredits())
-			{
-			int babyStudentCredits = this.getCredits();
-			}
-		else // this.getCredits() < other.getCredits()
-			{
-			int babyStudentCredits = other.getCredits();
-			}
-		
+	{
 		//create new student from baby
-		Student baby = new Student()
+		Student baby = new Student(String firstName, String lastName, int studentID)
 		{
-			String firstName = this.babyFirstName;
-			String lastName = this.babyLastName;
-			int studentID =  this.babyStudentID;
-			double studentGPA = this.babyStudentGPA;
-			int studentCredits = this.babyStudentCredits;
-		}
-}
+			String firstName = this.getName();
+			String lastName = other.getName();
+			int studentID = this.getStudentID() + other.getStudentID();
+			double gpa = (this.getGPA() * other.getGPA()) / 2;
+			int studentCredits = 0;
+			
+				{	
+				if (this.getCredits() > other.getCredits())
+					{
+					int babyStudentCredits = this.getCredits();
+					}
+				else // this.getCredits() < other.getCredits()
+					{
+					int babyStudentCredits = other.getCredits();
+					} 
+				}
+		}	
+	}//createLegacy curly end brace
+					
+} //class curly end brace
 
