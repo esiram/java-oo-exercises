@@ -122,22 +122,5 @@ public class Student {
 			double studentGPA = this.babyStudentGPA;
 			int studentCredits = this.babyStudentCredits;
 		}
-		
-		
-		
 	}
-
-	
-}
-	
-	
-	
-	
-	
-	
-	
-	//public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	//}
 
