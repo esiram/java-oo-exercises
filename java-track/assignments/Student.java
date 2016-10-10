@@ -102,5 +102,11 @@ public class Student {
 		Student legacy =  new Student(father, mother);	
 		return legacy;			
 	}	
+	
+//create toString
+	public String toString()
+	{
+		return ("StudentName: " + firstName + " " + lastName + " Student ID: " + studentID);
+}
 } //class curly end brace
 

@@ -136,18 +136,18 @@ public class StudentAndCourseTest extends TestCase {
 		}
 	}
 
-//	@Test
-//	public void testStudentToString() {
-//		for (int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			double b =  (Math.random() * 5000);
-//			int c = (int)Math.random() * 500000;
-//			Student s = new Student("" + a, "" + b, c);
-//			assertTrue("student toString does not contain entire student name", s.toString().contains("" + a));
-//			assertTrue("student toString does not contain entire student name", s.toString().contains("" + b));
-//			assertTrue("student toString does not contain student ID", s.toString().contains("" + c));
-//		}
-//	}
+	@Test
+	public void testStudentToString() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			double b =  (Math.random() * 5000);
+			int c = (int)Math.random() * 500000;
+			Student s = new Student("" + a, "" + b, c);
+			assertTrue("student toString does not contain entire student name", s.toString().contains("" + a));
+			assertTrue("student toString does not contain entire student name", s.toString().contains("" + b));
+			assertTrue("student toString does not contain student ID", s.toString().contains("" + c));
+		}
+	}
 
 
 
