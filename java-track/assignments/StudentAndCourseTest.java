@@ -102,38 +102,38 @@ public class StudentAndCourseTest extends TestCase {
 	}
 
 
-//	@Test
-//	public void testCreateLegacy() {
-//		for(int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			double b =  (Math.random() * 5000);
-//			Student s = new Student("" + a, "" + b, 1);
-//			double a2 =  (Math.random() * 5000);
-//			double b2 =  (Math.random() * 5000);
-//			Student ss = new Student("" + a2, "" + b2, 2);
-//			int c = (int)(Math.random() * 120 + 1);
-//			double g = Math.round(Math.random() * 4000) / 1000.0;
-//			s.submitGrade(g, c);
-//			int c2 = (int)(Math.random() * 120 + 1);
-//			double g2 = Math.round(Math.random() * 4000) / 1000.0;
-//			ss.submitGrade(g2, c2);
-//			Student bb = s.createLegacy(s, ss);
-//			assertTrue("create baby not setting name properly", bb.getName().contains(s.getName()) && bb.getName().contains(ss.getName()));
-//			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
-//			assertEquals("create baby not setting credits properly", bb.getCredits(), Math.max(c, c2));
-//			assertTrue("create baby not creating ID properly", bb.getStudentID() == s.getStudentID() + ss.getStudentID());
+	@Test
+	public void testCreateLegacy() {
+		for(int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			double b =  (Math.random() * 5000);
+			Student s = new Student("" + a, "" + b, 1);
+			double a2 =  (Math.random() * 5000);
+			double b2 =  (Math.random() * 5000);
+			Student ss = new Student("" + a2, "" + b2, 2);
+			int c = (int)(Math.random() * 120 + 1);
+			double g = Math.round(Math.random() * 4000) / 1000.0;
+			s.submitGrade(g, c);
+			int c2 = (int)(Math.random() * 120 + 1);
+			double g2 = Math.round(Math.random() * 4000) / 1000.0;
+			ss.submitGrade(g2, c2);
+			Student bb = s.createLegacy(s, ss);
+			assertTrue("create baby not setting name properly", bb.getName().contains(s.getName()) && bb.getName().contains(ss.getName()));
+			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
+			assertEquals("create baby not setting credits properly", bb.getCredits(), Math.max(c, c2));
+			assertTrue("create baby not creating ID properly", bb.getStudentID() == s.getStudentID() + ss.getStudentID());
 
-//			//Make sure parents haven't changed
-//			assertEquals("createBaby should not alter the parents", a + " " + b, s.getName());
-//			assertEquals("createBaby should not alter the parents", g, s.getGPA());
-//			assertEquals("createBaby should not alter the parents", c, s.getCredits());
+			//Make sure parents haven't changed
+			assertEquals("createBaby should not alter the parents", a + " " + b, s.getName());
+			assertEquals("createBaby should not alter the parents", g, s.getGPA());
+			assertEquals("createBaby should not alter the parents", c, s.getCredits());
 
-//			assertEquals("createBaby should not alter the parents", a2 + " " + b2, ss.getName());
-//			assertEquals("createBaby should not alter the parents", g2, ss.getGPA());
-//			assertEquals("createBaby should not alter the parents", c2, ss.getCredits());
+			assertEquals("createBaby should not alter the parents", a2 + " " + b2, ss.getName());
+			assertEquals("createBaby should not alter the parents", g2, ss.getGPA());
+			assertEquals("createBaby should not alter the parents", c2, ss.getCredits());
 
-//		}
-//	}
+		}
+	}
 
 //	@Test
 //	public void testStudentToString() {

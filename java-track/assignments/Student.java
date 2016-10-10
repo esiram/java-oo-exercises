@@ -77,20 +77,22 @@ public class Student {
 		this.credits = this.credits + courseCredits;
 		this.gpa = (quality + previousQuality) / this.credits;
 		this.gpa = (double) (Math.round(this.gpa * 1000)) / 1000;
-	}
+	 }
 
 	
-//computeTuition()   //do I need to have a setter method up top for tuition?-Es 10/9/16
-	public double computeTuition()
+//computeTuition()
+	public double computeTuition() //this doesn't have the appropriate [.33] at end of answer
 	{
 		double costPerCredit = 20000 / 15;
-		return (double)(costPerCredit * this.credits);
+		return (costPerCredit * this.credits);
 	}	
 	
 	
 //createLegacy() -- note: this involves making a new constructor for the new generation student
+	public createLegacy(type Student, type Student)
+	{
 
-	
+	}
 	
 	
 	
