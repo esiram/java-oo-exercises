@@ -21,6 +21,15 @@ public class Student {
 	}
 
 
+	public Student(Student father, Student mother)
+	{
+		this.firstName = father.getName();
+		this.lastName = mother.getName();
+		this.studentID = father.getStudentID() + mother.getStudentID();
+		this.gpa = (father.getGPA() + mother.getGPA()) / 2;
+		this.credits = Math.max(father.getCredits(), mother.getCredits());
+	}
+	
 	//getters and setters
 	public String getName()
 	{
@@ -87,30 +96,11 @@ public class Student {
 	}	
 
 
-//createLegacy() -- note: this involves making a new constructor for the new generation student
-	public void createLegacy(Student this, Student other)
+//createLegacy (see add'l Student constructor under initial Student constructor)
+	public Student createLegacy(Student father, Student mother)
 	{
-		//create new student from baby
-		Student baby = new Student(String firstName, String lastName, int studentID)
-		{
-			String firstName = this.getName();
-			String lastName = other.getName();
-			int studentID = this.getStudentID() + other.getStudentID();
-			double gpa = (this.getGPA() * other.getGPA()) / 2;
-			int studentCredits = 0;
-			
-				{	
-				if (this.getCredits() > other.getCredits())
-					{
-					int babyStudentCredits = this.getCredits();
-					}
-				else // this.getCredits() < other.getCredits()
-					{
-					int babyStudentCredits = other.getCredits();
-					} 
-				}
-		}	
-	}//createLegacy curly end brace
-					
+		Student legacy =  new Student(father, mother);	
+		return legacy;			
+	}	
 } //class curly end brace
 

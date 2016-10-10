@@ -119,7 +119,6 @@ public class StudentAndCourseTest extends TestCase {
 			ss.submitGrade(g2, c2);
 			Student bb = s.createLegacy(s, ss);
 			assertTrue("create baby not setting name properly", bb.getName().contains(s.getName()) && bb.getName().contains(ss.getName()));
-			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
 			assertEquals("create baby not setting credits properly", bb.getCredits(), Math.max(c, c2));
 			assertTrue("create baby not creating ID properly", bb.getStudentID() == s.getStudentID() + ss.getStudentID());
 
@@ -131,6 +130,8 @@ public class StudentAndCourseTest extends TestCase {
 			assertEquals("createBaby should not alter the parents", a2 + " " + b2, ss.getName());
 			assertEquals("createBaby should not alter the parents", g2, ss.getGPA());
 			assertEquals("createBaby should not alter the parents", c2, ss.getCredits());
+			
+			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
 
 		}
 	}
