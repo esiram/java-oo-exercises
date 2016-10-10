@@ -1,7 +1,4 @@
-//<<<<<<< HEAD
-//package pset9;
-//=======g
-//>>>>>>> refs/remotes/launchcode/master
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;

@@ -91,8 +91,22 @@ public class Student {
 //computeTuition()
 	public double computeTuition() //this doesn't have the appropriate [.33] at end of answer
 	{
-		double costPerCredit = 20000 / 15;
-		return (costPerCredit * this.credits);
+		double tuition = 0.00;
+		if(this.credits == 15)
+		{
+			tuition = 20000;
+		}
+		else if(this.credits > 15)
+		{
+			tuition = 20000 + (1333.33 * (this.credits - 15));
+		}
+		else // this.credits < 15
+		{
+			tuition = (this.credits * 1333.33);
+		}
+		//double costPerCredit = 1333.33;
+		//return (costPerCredit * this.credits);
+		return (tuition);
 	}	
 
 
