@@ -1,22 +1,24 @@
 
 public class DogRobot extends Robot {
 	
-	private String wagGrowl;
+	private boolean happy;
 
-	public DogRobot(String name, int x, int y, int speed, String orientation)
+	public DogRobot(String name, int x, int y, int speed, String orientation, boolean happy)
 	{
 		super(name, x, y, speed, orientation);
-		wagGrowl = "";
+		this.happy = happy;
 	}
 	
-	public void wag()
+	public void emotion()
 	{
-		this.wagGrowl = "wag, wag, wag";
-	}
-	
-	public void growl()
-	{
-		this.wagGrowl = "Grrrrrrr";
+		if(this.happy == true)
+			{
+			String action = "Wag, Wag, Wag!";
+			}
+		else // this.happy == false
+			{
+			String action = "Grrrrrrr!";
+			}
 	}
 	
 }

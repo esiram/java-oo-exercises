@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class CatRobot extends Robot {
 	
@@ -38,8 +39,10 @@ public static void main(String args[])
 	System.out.println(b.toString());
 	System.out.println(c.toString());
 	
-	
-	
-}
+	ArrayList<Robot> robots = new ArrayList<Robot>(); //Polymorphism in action
+	robots.add(a);
+	robots.add(b);
+	robots.add(c);
+	}
 	
 }
