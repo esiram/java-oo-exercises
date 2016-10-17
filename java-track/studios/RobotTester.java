@@ -28,5 +28,24 @@ public class RobotTester {
 	t.robotDistance(u);
 	//assertTrue()
 	}
+	
+	@Test
+	public void testGetDogEmotion()
+	{
+		DogRobot bb = new DogRobot("Blueberry", 3, 3, 3, "East", true);
+		assertTrue(bb.getDogEmotion() == "Wag, Wag, Wag!");
+
+		DogRobot cc = new DogRobot("Jimmy", 2, 2, 2, "West", false);
+		assertTrue(cc.getDogEmotion() == "Grrrrrrr!");
+	}
+	@Test
+	public void testGetCatEmotion()
+	{
+		CatRobot aa = new CatRobot("Mathilda", 3, 4, 5, "South", true);
+		assertTrue(aa.getCatEmotion() == "Hisssssss!");
+		
+		CatRobot dd = new CatRobot("Slinky", 1, 1, 6, "West", false);
+		assertTrue(dd.getCatEmotion() == "Purr, purr, purr!");
+	}
 
 }

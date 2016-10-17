@@ -9,16 +9,18 @@ public class DogRobot extends Robot {
 		this.happy = happy;
 	}
 	
-	public void emotion()
+	public String getDogEmotion()
 	{
+		String reaction = "";
 		if(this.happy == true)
 			{
-			String action = "Wag, Wag, Wag!";
+			reaction = "Wag, Wag, Wag!";
 			}
 		else // this.happy == false
 			{
-			String action = "Grrrrrrr!";
+			reaction = "Grrrrrrr!";
 			}
+		return reaction;
 	}
 	
 }
