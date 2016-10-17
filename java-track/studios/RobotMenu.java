@@ -57,10 +57,10 @@ public class RobotMenu {
 		{
 			movingRobot();
 		}
-		else if(selection == 4)
-		{
-			rotatingRobot();
-		}
+//		else if(selection == 4)
+//		{
+//			rotatingRobot();
+//		}
 		else if(selection == 5)
 		{
 			distanceBetweenRobots();
@@ -106,13 +106,13 @@ public class RobotMenu {
 		return findRobot(robotName).robotDistance(findRobot(robot2Name));
 	}
 	
-	private void rotatingRobots()
-	{
-		System.out.println("Select your robot (name)");
-		String robotName = s.next();
-		findRobot(robotName).rotateRobot();
-		//maybe eventually make a return String which says what direction the robot faces.....
-	}
+//	private void rotatingRobots()
+//	{
+//		System.out.println("Select your robot (name)");
+//		String robotName = s.next();
+//		findRobot(robotName).rotateRobot();
+//		//maybe eventually make a return String which says what direction the robot faces.....
+//	}
 	
 	private void createRobot()
 	{
