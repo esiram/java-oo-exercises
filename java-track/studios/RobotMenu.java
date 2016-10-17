@@ -37,7 +37,7 @@ public class RobotMenu {
 		int selection = s.nextInt(); //calling scanner to use the next integer method; if user puts in a non integer higher than x (6 here), this will fail :(
 		while(selection < 0 || selection >6)
 		{
-			System.out.println("Invalid selction, please try agains:");
+			System.out.println("Invalid selection, please try agains:");
 			selection =  s.nextInt();
 		}
 		return selection;
@@ -55,15 +55,15 @@ public class RobotMenu {
 		}
 		else if(selection == 3)
 		{
-			moveRobots();
+			movingRobot();
 		}
 		else if(selection == 4)
 		{
-			rotateRobots();
+			rotatingRobot();
 		}
 		else if(selection == 5)
 		{
-			determineDistanceRobots();
+			distanceBetweenRobots();
 		}
 		
 	}
@@ -76,10 +76,37 @@ public class RobotMenu {
 		}
 	}
 	
-//	private Robot moveRobots() 
-//	{
-//		System.out.println("How long should the robot move?");	
-//	}
+	private Robot findRobot(String name)
+	{
+		for(Robot r: robots)
+		{
+			if(r.getName() == name) 
+			{
+				return r;
+			}
+		}
+		return null;
+	}
+	
+	private void movingRobot() 
+	{
+		System.out.println("Pick your robot (name)");
+		String robotName = s.next();
+		System.out.println("How many minutes should the robot move?");	
+		int robotTime = s.nextInt();
+		findRobot(robotName).moveRobot(robotTime);
+	}
+	
+	private double distanceBetweenRobots()
+	{
+		System.out.println("Select your robot (name)");
+		String robotName = s.next();
+		System.out.println("Select a second robot (name)");
+		String robot2Name = s.next();
+		return findRobot(robotName).robotDistance(findRobot(robot2Name));
+	}
+	
+	private rotatingRobots()
 	
 	private void createRobot()
 	{
