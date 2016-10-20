@@ -1,6 +1,4 @@
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -56,10 +54,12 @@ public class StudentAndCourseTest extends TestCase {
 			s.submitGrade(1.0, 1);
 			assertEquals(s9, "Junior", s.getClassStanding());
 		}
+
 		for (int i = 0; i < 30; i++) {
 			s.submitGrade(1.0, 1);
 			assertEquals(s9, "Senior", s.getClassStanding());
 		}
+
 	}
 
 	@Test
@@ -73,10 +73,7 @@ public class StudentAndCourseTest extends TestCase {
 			credits += c;
 			gpatotal += g * c;
 			s.submitGrade(g, c);
-			System.out.println(gpatotal / credits);
-			System.out.println(s.getGPA());
 			assertEquals("GPA computed incorrectly", gpatotal / credits, s.getGPA(), 0.01);
-//			System.out.println((s.getGPA() + "").length());
 			assertTrue("GPA not rounded", (s.getGPA() + "").length() < 6);
 		}
 	}
@@ -86,18 +83,17 @@ public class StudentAndCourseTest extends TestCase {
 		Student s = new Student("D", "S", 1);
 		for (int i = 0; i < 14; i++) {
 			s.submitGrade(0, 1);
-			assertEquals("Compute tuition not working properly", (i+1) * 1333.33, s.computeTuition());
+			assertEquals("Compute tution not working properly", (i+1) * 1333.33, s.computeTuition());
 		}
 
 		s.submitGrade(0, 1);
-		assertEquals("Compute tuition not working properly", 20000.0, s.computeTuition());
+		assertEquals("Compute tution not working properly", 20000.0, s.computeTuition());
 
 		for (int i = 0; i < 14; i++) {
 			s.submitGrade(0, 1);
-			assertEquals("Compute tuition not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
+			assertEquals("Compute tution not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
 		}
 	}
-
 
 	@Test
 	public void testCreateLegacy() {
@@ -116,6 +112,7 @@ public class StudentAndCourseTest extends TestCase {
 			ss.submitGrade(g2, c2);
 			Student bb = s.createLegacy(s, ss);
 			assertTrue("create baby not setting name properly", bb.getName().contains(s.getName()) && bb.getName().contains(ss.getName()));
+			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
 			assertEquals("create baby not setting credits properly", bb.getCredits(), Math.max(c, c2));
 			assertTrue("create baby not creating ID properly", bb.getStudentID() == s.getStudentID() + ss.getStudentID());
 
@@ -127,8 +124,6 @@ public class StudentAndCourseTest extends TestCase {
 			assertEquals("createBaby should not alter the parents", a2 + " " + b2, ss.getName());
 			assertEquals("createBaby should not alter the parents", g2, ss.getGPA());
 			assertEquals("createBaby should not alter the parents", c2, ss.getCredits());
-			
-			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
 
 		}
 	}
@@ -150,8 +145,8 @@ public class StudentAndCourseTest extends TestCase {
 
 
 
-//	// TESTING COURSE CLASS HERE . . . FEEL FREE TO WRITE YOUR OWN, BUT DON'T CHANGE THIS ONE
-//	// once again, we are watching you
+	// TESTING COURSE CLASS HERE . . . FEEL FREE TO WRITE YOUR OWN, BUT DON'T CHANGE THIS ONE
+	// once again, we are watching you
 
 	@Test
 	public void testCourseInit() {
@@ -173,6 +168,7 @@ public class StudentAndCourseTest extends TestCase {
 			double a =  (Math.random() * 5000);
 			int s = (int)(Math.random() * 50);
 			Course c = new Course("" + a, s, s);
+
 			for (int j = 0; j < s; j++) {
 				String aa =  "" + (Math.random() * 5000);
 				String b =  "" + (Math.random() * 5000);
@@ -180,9 +176,10 @@ public class StudentAndCourseTest extends TestCase {
 				Student s2 = new Student(aa, b, cc);
 				boolean added = c.addStudent(s2);
 				assertTrue("addStudent not working properly", added);
+
 				assertEquals("seats not updated after adding a student", s - j - 1, c.getRemainingSeats());
 			}
-			
+
 			//Try to add students, even though the class is full.
 			for (int j = 0; j < s; j++) {
 				String aa =  "" + (Math.random() * 5000);
@@ -190,6 +187,7 @@ public class StudentAndCourseTest extends TestCase {
 				int cc = (int)Math.random() * 500000;
 				Student s2 = new Student(aa, b, cc);
 				boolean added = c.addStudent(s2);
+
 				assertTrue("addStudent not working properly: student added even though class was full", !added);
 			}
 		}
@@ -227,7 +225,4 @@ public class StudentAndCourseTest extends TestCase {
 			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
 		}
 	}
-
-
-
 }

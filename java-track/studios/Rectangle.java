@@ -31,7 +31,8 @@ public class Rectangle {
 		else {
 			return false;
 		}
-		
+	}
+	
 	public boolean isSquare() {
 		if (this.width == this.height) {
 			return true;
