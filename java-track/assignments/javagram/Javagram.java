@@ -28,9 +28,10 @@ public class Javagram {
 				System.out.println("Image path (relative to " + dir + "):");
 				relPath = in.next();
 				
-				String[] relPathParts = relPath.split(File.separator);
-				imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
+//				String[] relPathParts = relPath.split(File.separator);
+//				imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
 				
+				imagePath = (dir + "\\" + relPath); //see piazza 10/12/16 "Javagram not working for me" comment - ES 10/24/16
 				picture = new Picture(imagePath);
 				
 			} catch (RuntimeException e) {
