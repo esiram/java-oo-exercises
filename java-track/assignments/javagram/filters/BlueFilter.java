@@ -4,7 +4,6 @@ import javagram.Picture;
 import java.awt.Color;
 
 public class BlueFilter {
-
 	public Picture process(Picture original) {
 		
 		Picture processed = new Picture(original.width(), original.height());
