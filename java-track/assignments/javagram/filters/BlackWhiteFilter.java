@@ -6,11 +6,9 @@ import javagram.Picture;
 
 public class BlackWhiteFilter implements Filter {
 
-	@Override
 	public Picture process(Picture original) {
 			
-		Picture processed = new Picture(original.width(), original.height());
-	        
+		Picture processed = new Picture(original.width(), original.height());   
 		//get each pixel one by one
 		for (int i = 0; i < original.width(); i++) {
 		    for (int j = 0; j < original.height(); j++) {
@@ -22,9 +20,11 @@ public class BlackWhiteFilter implements Filter {
 		        int g = c.getGreen();
 		        int b = c.getBlue();
 		          
+		        int newRed = (r + g + b) / 3;
+		        int newGreen = (r + g + b) / 3;
 		        int newBlue = (r + g + b) / 3;
-		          
-		        processed.set(i, j, new Color(100, 100, 100));
+		        
+		        processed.set(i, j, new Color(newRed, newGreen, newBlue));
 		    	  
 		      }
 		    }
@@ -33,4 +33,3 @@ public class BlackWhiteFilter implements Filter {
 		}
 	}
 
-}
