@@ -24,10 +24,6 @@ public class Javagram {
 			try {
 				System.out.println("Image path (relative to " + dir + "):");
 				relPath = s.next();
-				
-//				String[] relPathParts = relPath.split(File.separator);
-//				imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
-				
 				imagePath = (dir + "\\" + relPath); //see piazza 10/12/16 "Javagram not working for me" comment - ES 10/24/16
 				picture = new Picture(imagePath);			
 			} 		
@@ -57,20 +53,18 @@ public class Javagram {
 		System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
 		String fileName = s.next();
 		
-		// TODO - if the user enters the same file name as the input file, confirm that they want to overwrite the original
-		
 		if (fileName.equals("exit")) {
 			System.out.println("Image not saved");
 		}
 		else {
-			String absFileName = dir + File.separator + fileName;
-			while (absFileName == imagePath){
-				System.out.println("Saving with this name will overide the original image. Enter 1 to save with this name or any number but 1 to save with a different name.");
-				int selection = s.nextInt();
-				if (selection == 1){
-					absFileName = dir + File.separator + fileName;
+			String absFileName = dir + "\\" + fileName;
+			while (absFileName.equals(imagePath)){
+				System.out.println("Saving with this name will overide the original image. Yes Or No?");
+				String selection = s.next();
+				if (selection.equals("Yes") || selection.equals("yes")){
+					break;
 				}
-				else{ //if (selection != 1)
+				else{ // No
 					System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
 					String newfileName = s.next();
 					absFileName = dir + File.separator + newfileName;
