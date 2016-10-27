@@ -43,7 +43,7 @@ public class Javagram {
 		// TODO - prompt user for filter and validate input
 		
 		// TODO - pass filter ID int to getFilter, and get an instance of Filter back 
-		BlueFilter filter = getFilter();		//  see line ~75; will need to change both this and that segment for first TODO -es10/26/16	
+		Filter filter = getFilter();		
 
 		// filter and display image
 		Picture processed = filter.process(picture);
