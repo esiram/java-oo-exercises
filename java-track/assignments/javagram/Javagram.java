@@ -84,11 +84,12 @@ public class Javagram {
 		System.out.println("1. Blue.");
 		System.out.println("2. Red.");
 		System.out.println("3. Green.");
+		System.out.println("4. Gray.");
 
-		//calling scanner to use the next integer method; failure if user submits a non-integer higher than x (3 here)
+		//calling scanner to use the next integer method; failure if user submits a non-integer higher than x (4 here)
 
 		int selection = s.nextInt(); 
-		if (selection < 0 || selection > 3) {
+		if (selection < 0 || selection > 4) {
 			throw new IllegalArgumentException("Invalid selection, please try again.");
 		}
 		Filter f = null;
@@ -98,8 +99,11 @@ public class Javagram {
 		else if (selection == 2){
 			f = new RedFilter();
 		}
-		else {				 // if (selection == 3)
+		else if (selection == 3){
 			f = new GreenFilter();
+		}
+		else{ //if (selection == 4)
+			f = new GrayFilter();
 		}
 		return f;
 	}
