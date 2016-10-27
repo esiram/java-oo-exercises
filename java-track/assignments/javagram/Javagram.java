@@ -26,7 +26,6 @@ public class Javagram {
 			
 			// try to open the file
 			try {
-				
 				System.out.println("Image path (relative to " + dir + "):");
 				relPath = s.next();
 				
@@ -34,18 +33,23 @@ public class Javagram {
 //				imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
 				
 				imagePath = (dir + "\\" + relPath); //see piazza 10/12/16 "Javagram not working for me" comment - ES 10/24/16
-				picture = new Picture(imagePath);
-				
-			} catch (RuntimeException e) {
+				picture = new Picture(imagePath);			
+			} 		
+			catch (RuntimeException e) {
 				System.out.println("Could not open image: " + imagePath);
 			}
-			
-		} while(picture == null);
+		} 
 		
-		// TODO - prompt user for filter and validate input
+		while(picture == null);
 		
-		
-		Filter filter = getFilter();		
+		Filter filter = null;
+		try{
+	       filter = getFilter();	
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Exception thrown:" + e);
+			filter = getFilter();
+		}
 
 		// filter and display image
 		Picture processed = filter.process(picture);
@@ -70,6 +74,8 @@ public class Javagram {
 		
 		// close input scanner
 		s.close();
+
+		
 	}
 
 	public static Filter getFilter()
@@ -80,11 +86,8 @@ public class Javagram {
 		System.out.println("3. Green.");
 		int selection = s.nextInt(); //calling scanner to use the next integer method; if user submits a non-integer higher than x (4 here), this will fail
 
-
-		while(selection < 0 || selection > 4)
-		{
-			System.out.println("Invalid selection, please try agains:");
-			selection =  s.nextInt();
+		if (selection < 0 || selection > 3) {
+			throw new IllegalArgumentException("Invalid selection, please try again.");
 		}
 		Filter f = null;
 		if (selection == 1) {
