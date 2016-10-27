@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Javagram {
+	
+	private static Scanner s;
 
 	public static void main(String[] args) {
 
@@ -15,7 +17,7 @@ public class Javagram {
 		String dir = String.join(File.separator, baseParts);
 		String relPath;
 		Picture picture = null;
-		Scanner in = new Scanner(System.in);
+		s = new Scanner(System.in);
 		
 		// prompt user for image to filter and validate input
 		do {
@@ -26,7 +28,7 @@ public class Javagram {
 			try {
 				
 				System.out.println("Image path (relative to " + dir + "):");
-				relPath = in.next();
+				relPath = s.next();
 				
 //				String[] relPathParts = relPath.split(File.separator);
 //				imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
@@ -42,8 +44,9 @@ public class Javagram {
 		
 		// TODO - prompt user for filter and validate input
 		
+		
 		// TODO - pass filter ID int to getFilter, and get an instance of Filter back 
-		Filter filter = getFilter();		
+		Filter filter = filterMenu();		
 
 		// filter and display image
 		Picture processed = filter.process(picture);
@@ -54,7 +57,7 @@ public class Javagram {
 		// save image, if desired
 		
 		System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
-		String fileName = in.next();
+		String fileName = s.next();
 		
 		// TODO - if the user enters the same file name as the input file, confirm that they want to overwrite the original
 		
@@ -67,16 +70,37 @@ public class Javagram {
 		}	
 		
 		// close input scanner
-		in.close();
+		s.close();
 	}
 	
 	// TODO - refactor this method to accept an int parameter, and return an instance of the Filter interface
 	// TODO - refactor this method to thrown an exception if the int doesn't correspond to a filter
-	private static BlueFilter getFilter() {  // will need to change this for first TODO -es 10/26/16
+	private static BlueFilter getBlueFilter() {  // will need to change this for first TODO -es 10/26/16
 		
 		// TODO - create some more filters, and add logic to return the appropriate one
 		return new BlueFilter();
 		
+	}
+	
+	public static Filter filterMenu()
+	{
+		System.out.println("Choose a filter!");
+		System.out.println("1. Blue.");
+		System.out.println("2. Exit program.");
+		int selection = s.nextInt(); //calling scanner to use the next integer method; if user puts in a non integer higher than x (6 here), this will fail :(
+		while(selection < 0 || selection > 3)
+		{
+			System.out.println("Invalid selection, please try agains:");
+			selection =  s.nextInt();
+		}
+		Filter f = null;
+		if (selection == 1) {
+			f = getBlueFilter();
+		}
+		else {
+			System.exit(0);
+		}
+		return f;
 	}
 
 }
