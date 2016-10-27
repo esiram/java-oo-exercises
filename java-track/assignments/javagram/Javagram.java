@@ -72,35 +72,30 @@ public class Javagram {
 		// close input scanner
 		s.close();
 	}
-	
-	private static BlueFilter getBlueFilter() {
 
-		return new BlueFilter();	
-	}
-	
-	private static RedFilter getRedFilter() {
-		return new RedFilter();
-	}
-	
 	public static Filter getFilter()
 	{
 		System.out.println("Choose a filter!");
 		System.out.println("1. Blue.");
 		System.out.println("2. Red.");
-		System.out.println("3. Exit program.");
+		System.out.println("3. Green.");
+		System.out.println("4. Exit program.");
 		int selection = s.nextInt(); //calling scanner to use the next integer method; if user puts in a non integer higher than x (6 here), this will fail :(
 
-		while(selection < 0 || selection > 4)
+		while(selection < 0 || selection > 5)
 		{
 			System.out.println("Invalid selection, please try agains:");
 			selection =  s.nextInt();
 		}
 		Filter f = null;
 		if (selection == 1) {
-			f = getBlueFilter();
+			f = new BlueFilter();
 		}
 		else if (selection == 2){
-			f = getRedFilter();
+			f = new RedFilter();
+		}
+		else if (selection == 3){
+			f = new GreenFilter();
 		}
 		else {
 			System.exit(0);
