@@ -45,7 +45,6 @@ public class Javagram {
 		// TODO - prompt user for filter and validate input
 		
 		
-		// TODO - pass filter ID int to getFilter, and get an instance of Filter back 
 		Filter filter = getFilter();		
 
 		// filter and display image
@@ -79,10 +78,10 @@ public class Javagram {
 		System.out.println("1. Blue.");
 		System.out.println("2. Red.");
 		System.out.println("3. Green.");
-		System.out.println("4. Exit program.");
-		int selection = s.nextInt(); //calling scanner to use the next integer method; if user puts in a non integer higher than x (6 here), this will fail :(
+		int selection = s.nextInt(); //calling scanner to use the next integer method; if user submits a non-integer higher than x (4 here), this will fail
 
-		while(selection < 0 || selection > 5)
+
+		while(selection < 0 || selection > 4)
 		{
 			System.out.println("Invalid selection, please try agains:");
 			selection =  s.nextInt();
@@ -94,12 +93,10 @@ public class Javagram {
 		else if (selection == 2){
 			f = new RedFilter();
 		}
-		else if (selection == 3){
+		else {				 // if (selection == 3)
 			f = new GreenFilter();
 		}
-		else {
-			System.exit(0);
-		}
+
 		return f;
 	}
 
