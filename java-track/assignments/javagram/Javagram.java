@@ -64,7 +64,7 @@ public class Javagram {
 				if (selection.equals("Yes") || selection.equals("yes") || selection.equals("YES") || selection.equals("Y")){
 					break;
 				}
-				else{ // No
+				else{ // !=yes
 					System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
 					String newfileName = s.next();
 					absFileName = dir + File.separator + newfileName;
