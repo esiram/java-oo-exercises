@@ -18,13 +18,9 @@ public class Javagram {
 		String relPath;
 		Picture picture = null;
 		s = new Scanner(System.in);
-		
+		String imagePath = "path not set";
 		// prompt user for image to filter and validate input
 		do {
-			
-			String imagePath = "path not set";
-			
-			// try to open the file
 			try {
 				System.out.println("Image path (relative to " + dir + "):");
 				relPath = s.next();
@@ -38,19 +34,18 @@ public class Javagram {
 			catch (RuntimeException e) {
 				System.out.println("Could not open image: " + imagePath);
 			}
-		} 
-		
-		while(picture == null);
+		} while(picture == null);
 		
 		Filter filter = null;
-		try{
-	       filter = getFilter();	
-		}
-		catch(IllegalArgumentException e) {
-			System.out.println("Exception thrown:" + e);
-			filter = getFilter();
-		}
-
+		do {
+			try{
+			       filter = getFilter();	
+				}
+				catch(IllegalArgumentException e) {
+					System.out.println("Exception thrown:" + e);
+				}
+		} while(filter == null);
+		
 		// filter and display image
 		Picture processed = filter.process(picture);
 		processed.show();
@@ -66,16 +61,27 @@ public class Javagram {
 		
 		if (fileName.equals("exit")) {
 			System.out.println("Image not saved");
-		} else {
+		}
+		else {
 			String absFileName = dir + File.separator + fileName;
+			while (absFileName == imagePath){
+				System.out.println("Saving with this name will overide the original image. Enter 1 to save with this name or any number but 1 to save with a different name.");
+				int selection = s.nextInt();
+				if (selection == 1){
+					absFileName = dir + File.separator + fileName;
+				}
+				else{ //if (selection != 1)
+					System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
+					String newfileName = s.next();
+					absFileName = dir + File.separator + newfileName;
+				}
+			}
 			processed.save(absFileName);
 			System.out.println("Image saved to " + absFileName);
-		}	
-		
+			
 		// close input scanner
 		s.close();
-
-		
+		}
 	}
 
 	public static Filter getFilter()
@@ -84,8 +90,10 @@ public class Javagram {
 		System.out.println("1. Blue.");
 		System.out.println("2. Red.");
 		System.out.println("3. Green.");
-		int selection = s.nextInt(); //calling scanner to use the next integer method; if user submits a non-integer higher than x (4 here), this will fail
 
+		//calling scanner to use the next integer method; failure if user submits a non-integer higher than x (3 here)
+
+		int selection = s.nextInt(); 
 		if (selection < 0 || selection > 3) {
 			throw new IllegalArgumentException("Invalid selection, please try again.");
 		}
@@ -99,8 +107,6 @@ public class Javagram {
 		else {				 // if (selection == 3)
 			f = new GreenFilter();
 		}
-
 		return f;
 	}
-
 }
