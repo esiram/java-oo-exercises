@@ -19,6 +19,7 @@ public class Javagram {
 		Picture picture = null;
 		s = new Scanner(System.in);
 		String imagePath = "path not set";
+		
 		// prompt user for image to filter and validate input
 		do {
 			try {
@@ -49,7 +50,6 @@ public class Javagram {
 		System.out.println("Image successfully filtered");
 		
 		// save image, if desired
-		
 		System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
 		String fileName = s.next();
 		
@@ -61,7 +61,7 @@ public class Javagram {
 			while (absFileName.equals(imagePath)){
 				System.out.println("Saving with this name will overide the original image. Yes Or No?");
 				String selection = s.next();
-				if (selection.equals("Yes") || selection.equals("yes")){
+				if (selection.equals("Yes") || selection.equals("yes") || selection.equals("YES") || selection.equals("Y")){
 					break;
 				}
 				else{ // No
