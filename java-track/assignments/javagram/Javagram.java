@@ -46,7 +46,7 @@ public class Javagram {
 		
 		
 		// TODO - pass filter ID int to getFilter, and get an instance of Filter back 
-		Filter filter = filterMenu();		
+		Filter filter = getFilter();		
 
 		// filter and display image
 		Picture processed = filter.process(picture);
@@ -73,22 +73,24 @@ public class Javagram {
 		s.close();
 	}
 	
-	// TODO - refactor this method to accept an int parameter, and return an instance of the Filter interface
-	// TODO - refactor this method to thrown an exception if the int doesn't correspond to a filter
-	private static BlueFilter getBlueFilter() {  // will need to change this for first TODO -es 10/26/16
-		
-		// TODO - create some more filters, and add logic to return the appropriate one
-		return new BlueFilter();
-		
+	private static BlueFilter getBlueFilter() {
+
+		return new BlueFilter();	
 	}
 	
-	public static Filter filterMenu()
+	private static RedFilter getRedFilter() {
+		return new RedFilter();
+	}
+	
+	public static Filter getFilter()
 	{
 		System.out.println("Choose a filter!");
 		System.out.println("1. Blue.");
-		System.out.println("2. Exit program.");
+		System.out.println("2. Red.");
+		System.out.println("3. Exit program.");
 		int selection = s.nextInt(); //calling scanner to use the next integer method; if user puts in a non integer higher than x (6 here), this will fail :(
-		while(selection < 0 || selection > 3)
+
+		while(selection < 0 || selection > 4)
 		{
 			System.out.println("Invalid selection, please try agains:");
 			selection =  s.nextInt();
@@ -96,6 +98,9 @@ public class Javagram {
 		Filter f = null;
 		if (selection == 1) {
 			f = getBlueFilter();
+		}
+		else if (selection == 2){
+			f = getRedFilter();
 		}
 		else {
 			System.exit(0);
