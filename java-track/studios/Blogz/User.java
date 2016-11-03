@@ -1,5 +1,5 @@
 package Blogz;
-import java.lang.Object; //for regular expressions
+//import java.lang.Object; //for regular expressions
 import java.util.regex.Matcher;//for regular expressions
 import java.util.regex.Pattern;//for regular expressions
 import java.util.ArrayList; // array list is a kind of list
