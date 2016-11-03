@@ -19,7 +19,47 @@ public class Post {
 		this.modified = modified;
 	}
 	
+	//Getters
+	public String getTitle(){
+		return this.title;
+	}
+	
+	public String getAuthor(){
+		return this.author;
+	}
+	 
+	public String getBody(){
+		return this.body;
+	}
+	
+	public Date getCreated(){
+		return this.created;
+	}
+
+	public Date getModified(){
+		return this.modified;
+	}
+	
+	//Setters
+	public void setTitle(){
+		Date d = new Date();
+		this.modified = d;
+		this.title = title;
+	}
+	
+	public void setAuthor(){
+		Date d = new Date();
+		this.modified = d;
+		this.author = author;
+	}
+	
+	public void setBody(){
+		Date d = new Date();
+		this.modified = d;
+		this.body = body;
+	}
 	
 }
 
+	
 
