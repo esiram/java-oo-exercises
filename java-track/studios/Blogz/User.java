@@ -6,7 +6,6 @@ import java.util.ArrayList; // array list is a kind of list
 import java.util.List; // list is an interface
 
 
-
 public class User {
 	private String username; 
 	private String password; 
