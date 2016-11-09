@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestBlogz {
-	User a = new User("apple", "jonathan");
+	User a = new User(1, "apple", "jonathan");
 	
 	@Test
 	public void testIsValidUsername() {
