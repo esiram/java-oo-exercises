@@ -6,7 +6,8 @@ import java.util.ArrayList; // array list is a kind of list
 import java.util.List; // list is an interface
 
 
-public class User {
+public class User extends Entity{
+	
 	private String username; 
 	private String password; 
 	private String hashedPW;
@@ -31,7 +32,8 @@ public class User {
 		
 	
 	//Constructor:
-	public User(String username, String hashedPW){
+	public User(int UID, String username, String hashedPW){
+		super(UID);
 		this.hashedPW = hashPassword(this.password);
 		if (!User.isValidUsername(username)){
 			throw new IllegalArgumentException("Bad username.");	
